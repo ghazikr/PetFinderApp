@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PetFinderApp.MyPets"
+             xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             Title="My Pets">
+
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="plus.png" Clicked="MenuItem_OnClicked" />
+    </ContentPage.ToolbarItems>
+
+    <cv:CarouselView x:Name="CarouselPets">
+        <cv:CarouselView.ItemTemplate>
+            <DataTemplate>
+
+
+                <RelativeLayout>
+
+
+                    <Image x:Name="img" Aspect="AspectFill" Source="{Binding ImageUrl}"
+                           RelativeLayout.HeightConstraint="{ConstraintExpression 
+		Type=RelativeToParent,
+		Property=Height,
+		Factor=0.4}"
+                           RelativeLayout.WidthConstraint="{ConstraintExpression
+		Type=RelativeToParent,
+		Property=Width,
+		Factor=1}" />
+
+
+                    <BoxView BackgroundColor="Black" x:Name="banner" Opacity="0.45"
+                             RelativeLayout.HeightConstraint="{ConstraintExpression 
+				Type=RelativeToParent,
+				Property=Height,
+				Factor=0.4}"
+                             RelativeLayout.WidthConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Width,
+				Factor=1}" />
+
+                    <StackLayout x:Name="StackLayout" HorizontalOptions="Center"
+                                 RelativeLayout.WidthConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Width,
+				Factor=1}"
+
+                                 RelativeLayout.YConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Height,
+				Factor=0.26,
+				}"
+                                 Padding="10">
+                        <Label Text="{Binding id}" IsVisible="False" x:Name="idPet" />
+                        <ic:CircleImage Source="{Binding ImageUrl}" WidthRequest="150" HeightRequest="150"
+                                        Aspect="AspectFill" />
+                        <Label Text="{Binding name}" HorizontalOptions="Center" FontSize="25" FontAttributes="Bold" TextColor="Black"/>
+                        <Label Text="{Binding breed}" HorizontalOptions="Center" FontSize="18" FontAttributes="Bold" TextColor="Black"/>
+                        <Label Text="{Binding genderAndage}" HorizontalOptions="Center" FontSize="15" TextColor="Black"/>
+                        <Button Text="Report Lost" BackgroundColor="#00BCD4" Margin="0,50,0,0" WidthRequest="250"
+                                Clicked="report_lost_clicked" BorderRadius="25" TextColor="#F8EEE7" />
+
+                    </StackLayout>
+                </RelativeLayout>
+
+            </DataTemplate>
+        </cv:CarouselView.ItemTemplate>
+    </cv:CarouselView>
+
+
+    <!--<CarouselPage.ItemTemplate >
+		<DataTemplate>
+			<ContentPage x:Name="pp">
+				<ContentPage.ToolbarItems>
+					<ToolbarItem Icon="plus.png" Clicked="MenuItem_OnClicked"></ToolbarItem>
+					</ContentPage.ToolbarItems>
+				<RelativeLayout>
+
+
+					<Image x:Name="img" Aspect="AspectFill"
+						   RelativeLayout.HeightConstraint="{ConstraintExpression 
+		Type=RelativeToParent,
+		Property=Height,
+		Factor=0.3}"
+						   RelativeLayout.WidthConstraint="{ConstraintExpression
+		Type=RelativeToParent,
+		Property=Width,
+		Factor=1}" />
+
+					<BoxView BackgroundColor="Black" x:Name="banner" Opacity="0.6"
+							 RelativeLayout.HeightConstraint="{ConstraintExpression 
+				Type=RelativeToParent,
+				Property=Height,
+				Factor=0.3}"
+							 RelativeLayout.WidthConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Width,
+				Factor=1}" />
+					<StackLayout x:Name="StackLayout" HorizontalOptions="Center" 
+								 RelativeLayout.WidthConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Width,
+				Factor=1}"
+
+								 RelativeLayout.YConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Height,
+				Factor=0.22,
+				}" Padding="10">
+                        <Label Text="{Binding id}" IsVisible="False" x:Name="idPet"></Label>
+                        <Image Source="{Binding ImageUrl}" WidthRequest="80" HeightRequest="80"></Image>
+						<Label Text="{Binding name}" HorizontalOptions="Center"/>
+                        <Label Text="{Binding breed}" HorizontalOptions="Center"/>
+                        <Label Text="{Binding genderAndage}" HorizontalOptions="Center"/>
+                        <Button Text="Report Lost" BackgroundColor="#00BCD4" Margin="0,50,0,0" WidthRequest="250" 
+                                Clicked="report_lost_clicked" />
+
+					</StackLayout>
+				</RelativeLayout>
+
+			</ContentPage>
+		</DataTemplate>
+	</CarouselPage.ItemTemplate>-->
+</ContentPage>

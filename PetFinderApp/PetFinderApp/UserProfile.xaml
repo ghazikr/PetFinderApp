@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  x:Class="PetFinderApp.UserProfile"
+                  NavigationPage.HasBackButton="False">
+
+    <MasterDetailPage.Master>
+        <ContentPage BackgroundColor="#EFEFEF" Title="master">
+            <RelativeLayout>
+                <BoxView
+                    RelativeLayout.HeightConstraint="{ConstraintExpression 
+				Type=RelativeToParent,
+				Property=Height,
+				Factor=0.23}"
+                    RelativeLayout.WidthConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Width,
+				Factor=1}"
+                    BackgroundColor="#894183">
+                </BoxView>
+
+                <StackLayout
+                    RelativeLayout.HeightConstraint="{ConstraintExpression 
+				Type=RelativeToParent,
+				Property=Height,
+				Factor=0.23}"
+                    RelativeLayout.WidthConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Width,
+				Factor=1}"
+                    Orientation="Horizontal" Padding="30"
+                    VerticalOptions="Center">
+                    <Image Source="snack.png" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="50"
+                           HeightRequest="50" />
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="Welcome" Margin="7,0,0,0" HorizontalOptions="StartAndExpand"
+                               VerticalOptions="Center" TextColor="#FFFFFF" FontSize="20"/>
+                        <Label Margin="7,0,0,0" Text="{Binding firstname}" HorizontalOptions="StartAndExpand"
+                               VerticalOptions="Center" TextColor="#FFFFFF" FontSize="16"/>
+
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout
+                    RelativeLayout.WidthConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Width,
+				Factor=1}"
+
+                    RelativeLayout.YConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				ElementName=logolayout,
+				Property=Height,
+				Factor=0.25
+				}">
+
+                    <StackLayout VerticalOptions="FillAndExpand" Padding="15">
+                        <ListView ItemSelected="ListView_OnItemSelected" x:Name="listView"
+                                  VerticalOptions="FillAndExpand"
+                                  HasUnevenRows="True" SeparatorVisibility="Default">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+
+                                    <!-- <ImageCell Text="{Binding itemName}" ImageSource="{Binding itemIcon}"
+                                               TextColor="Black"  />-->
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal" Margin="0,0,0,15">
+                                            <Image Source="{Binding itemIcon}" WidthRequest="45" HeightRequest="45"
+                                                   Margin="0,7,0,0">
+                                            </Image>
+                                            <Label Text="{Binding itemName}" VerticalOptions="Center"></Label>
+                                        </StackLayout>
+                                    </ViewCell>
+
+
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </StackLayout>
+            </RelativeLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+
+    <MasterDetailPage.Detail>
+        <ContentPage>
+
+            <StackLayout>
+                <Label Text="detail Page" />
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PetFinderApp.PetsForAdoption"
+             Title="Pets For Adoption"
+             xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             BackgroundColor="#EFEFEF">
+
+    <cv:CarouselView x:Name="CarouselView">
+        <cv:CarouselView.ItemTemplate>
+            <DataTemplate>
+
+
+                <RelativeLayout>
+
+
+                    <Image x:Name="img" Aspect="AspectFill" Source="{Binding ImageUrl}"
+                           RelativeLayout.HeightConstraint="{ConstraintExpression 
+		Type=RelativeToParent,
+		Property=Height,
+		Factor=0.5}"
+                           RelativeLayout.WidthConstraint="{ConstraintExpression
+		Type=RelativeToParent,
+		Property=Width,
+		Factor=1}" />
+                    <Label Margin="20" Text="{Binding name}" TextColor="White" FontSize="25" FontAttributes="Bold"
+                           RelativeLayout.YConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Height,
+				Factor=0.35,
+				}"
+                           RelativeLayout.WidthConstraint="{ConstraintExpression
+		Type=RelativeToParent,
+		Property=Width,
+		Factor=1}" />
+
+                    <Image Source="ic_favorite.png" WidthRequest="50" HeightRequest="50"
+                           RelativeLayout.YConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Height,
+				Factor=0.37,
+				}"
+                           RelativeLayout.XConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Width,
+				Factor=0.82,
+				}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="Button_OnClicked" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+
+                    <Grid
+                        RelativeLayout.YConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Height,
+				Factor=0.5,
+				}"
+                        RelativeLayout.WidthConstraint="{ConstraintExpression
+		Type=RelativeToParent,
+		Property=Width,
+		Factor=1}"
+                        RelativeLayout.HeightConstraint="{ConstraintExpression
+		Type=RelativeToParent,
+		Property=Height,
+		Factor=0.5}">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Row="0" Grid.Column="0" VerticalOptions="Center">
+                            <Label Text="Breed" Style="{StaticResource label}" />
+
+                            <Label Text="{Binding breed}" Style="{StaticResource labelVal}" />
+
+
+                        </StackLayout>
+                        <StackLayout Grid.Row="0" Grid.Column="1" VerticalOptions="Center">
+                            <Label Text="Age" Style="{StaticResource label}" />
+                            <Label Text="{Binding age}" Style="{StaticResource labelVal}" />
+
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="1" Grid.Column="0" VerticalOptions="Center">
+                            <Label Text="Gender" Style="{StaticResource label}" />
+                            <Label Text="{Binding gender}" Style="{StaticResource labelVal}" />
+
+
+                        </StackLayout>
+                        <StackLayout Grid.Row="1" Grid.Column="1" VerticalOptions="Center">
+                            <Label Text="Health" Style="{StaticResource label}" />
+                            <Label Text="{Binding health}" Style="{StaticResource labelVal}" />
+
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="2" Grid.Column="0" VerticalOptions="Center">
+                            <Label Text="Height" Style="{StaticResource label}" />
+                            <Label Text="{Binding height}" Style="{StaticResource labelVal}" />
+
+
+                        </StackLayout>
+                        <StackLayout Grid.Row="2" Grid.Column="1" VerticalOptions="Center">
+                            <Label Text="Weight" Style="{StaticResource label}" />
+                            <Label Text="{Binding weight}" Style="{StaticResource labelVal}" />
+
+                        </StackLayout>
+
+                    </Grid>
+                </RelativeLayout>
+            </DataTemplate>
+
+        </cv:CarouselView.ItemTemplate>
+
+    </cv:CarouselView>
+
+</ContentPage>

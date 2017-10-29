@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PetFinderApp.CarouselTest"
+             	
+     xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView">
+
+    <cv:CarouselView x:Name="CarouselZoos">
+        <cv:CarouselView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout>
+                    <Label Text="{Binding id}" IsVisible="False" x:Name="idPet"></Label>
+                    <Image Source="{Binding ImageUrl}" WidthRequest="80" HeightRequest="80"></Image>
+                    <Label Text="{Binding name}" HorizontalOptions="Center"/>
+                    <Label Text="{Binding breed}" HorizontalOptions="Center"/>
+                    <Label Text="{Binding genderAndage}" HorizontalOptions="Center"/>
+                    <Button Text="Report Lost" BackgroundColor="#00BCD4" Margin="0,50,0,0" WidthRequest="250" 
+                             />
+                </StackLayout>
+
+            </DataTemplate>
+        </cv:CarouselView.ItemTemplate>
+    </cv:CarouselView>
+</ContentPage>

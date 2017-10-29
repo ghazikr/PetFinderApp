@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:PetFinderApp.Behaviors;assembly=PetFinderApp"
+             x:Class="PetFinderApp.RegisterUser"
+             BackgroundColor="#894183"
+             
+             >
+    
+    <RelativeLayout>
+        <StackLayout 
+                     RelativeLayout.HeightConstraint="{ConstraintExpression 
+				Type=RelativeToParent,
+				Property=Height,
+				Factor=0.5}"
+                     RelativeLayout.WidthConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Width,
+				Factor=1}"
+                     HorizontalOptions="Center" VerticalOptions="Center">
+
+            <Image Source="logo.png"
+                   Aspect="AspectFill" />
+            <Label Text="PetFinder" Margin="2" FontSize="32" TextColor="#F8EEE7" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <OnPlatform.iOS>JosefinSans-Bold</OnPlatform.iOS>
+
+                        <OnPlatform.Android>JosefinSans-Bold.ttf#Josefin Sans</OnPlatform.Android>
+
+
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+        </StackLayout>
+
+        <StackLayout Padding="40,0,40,0"
+                     RelativeLayout.WidthConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Width,
+				Factor=1}"
+
+                     RelativeLayout.YConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				ElementName=logolayout,
+				Property=Height,
+				Factor=0.45
+				}">
+
+            <Entry Keyboard="Text" Placeholder="First Name" x:Name="firstname" Style="{StaticResource EntryLogin}"></Entry>
+            <Entry Keyboard="Text" Placeholder="Last Name" x:Name="lastname" Style="{StaticResource EntryLogin}"></Entry>
+            <Entry Keyboard="Email" Placeholder="Email" x:Name="email" Style="{StaticResource EntryLogin}">
+                <Entry.Behaviors>
+                    <behaviors:EmailValidatorBehavior x:Name="emailValidator"/>
+                </Entry.Behaviors>
+            </Entry>
+            <Entry Keyboard="Text" Placeholder="Password" IsPassword="True" Style="{StaticResource EntryLogin}" x:Name="password"></Entry>
+
+            <Button Text="Create Account" Clicked="Button_OnClicked"  BackgroundColor="#49274A" BorderRadius="25"
+                    TextColor="#F8EEE7"></Button>
+            
+        </StackLayout>
+    </RelativeLayout>
+</ContentPage>

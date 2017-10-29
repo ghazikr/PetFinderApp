@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 x:Class="PetFinderApp.AddPet">
+    <RelativeLayout>
+
+        <StackLayout RelativeLayout.HeightConstraint="{ConstraintExpression 
+		Type=RelativeToParent,
+		Property=Height,
+		Factor=0.25}"
+                     RelativeLayout.WidthConstraint="{ConstraintExpression
+		Type=RelativeToParent,
+		Property=Width,
+		Factor=1}"
+                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.02,
+                             Constant=0}">
+            <StackLayout Spacing="20"
+            
+                Orientation="Horizontal" Padding="20" VerticalOptions="Center">
+                <Button Text="Pick a Photo" x:Name="pickPhoto" />
+                <Entry PlaceholderColor="#95989A" Placeholder="Name" HorizontalOptions="FillAndExpand" x:Name="Name"/>
+            </StackLayout>
+            <BoxView HeightRequest="2"  Color="#DFDFDF"></BoxView>
+        </StackLayout>
+
+        <StackLayout
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.18,
+                             Constant=0}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression
+		Type=RelativeToParent,
+		Property=Width,
+		Factor=1}"
+            Orientation="Horizontal" Padding="20" VerticalOptions="Center">
+            <Label Text="Overview" TextColor="#95989A" Margin="10" FontSize="18" />
+
+            <StackLayout Margin="50,0,0,0" HorizontalOptions="FillAndExpand">
+                <Entry Placeholder="Breed" PlaceholderColor="#95989A" x:Name="Breed"/>
+                <StackLayout Orientation="Horizontal"  >
+                    <Entry Placeholder="age" PlaceholderColor="#95989A" x:Name="Age" Keyboard="Numeric"/>
+                    <Picker x:Name="Gender" TextColor="#95989A" SelectedIndex="0" HorizontalOptions="FillAndExpand">
+                        <Picker.Items>
+                            <x:String >Male</x:String>
+                            <x:String>Female</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                </StackLayout>
+                <Entry Placeholder="Weight(lbs)" PlaceholderColor="#95989A" x:Name="weight" Keyboard="Numeric"/>
+                <Entry Placeholder="Height(inches)" PlaceholderColor="#95989A" x:Name="Height" Keyboard="Numeric"/>
+                <Picker x:Name="adopOrlost" TextColor="#95989A" SelectedIndex="0" HorizontalOptions="FillAndExpand">
+                    <Picker.Items>
+                        <x:String >For Adoption</x:String>
+                        <x:String>Lost</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Entry Placeholder="Health Condition" PlaceholderColor="#95989A" x:Name="health" />
+
+            </StackLayout>
+
+
+        </StackLayout>
+
+
+        <StackLayout
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.75,
+                             Constant=0}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression
+		Type=RelativeToParent,
+		Property=Width,
+		Factor=1}"
+            Padding="50">
+            <Button Text="Add Pet" BackgroundColor="#00BCD4" Clicked="btn_click" />
+        </StackLayout>
+    </RelativeLayout>
+
+  
+</ContentPage>

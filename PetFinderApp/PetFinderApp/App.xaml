@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PetFinderApp.App">
+	<Application.Resources>
+
+		<ResourceDictionary>
+            <Style x:Key="label" TargetType="Label">
+              <Setter Property="FontSize" Value="17"></Setter>
+              <Setter Property="TextColor" Value="#95989A"></Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+            </Style>
+
+            <Style x:Key="labelVal" TargetType="Label">
+                <Setter Property="FontSize" Value="23"></Setter>
+                <Setter Property="FontAttributes" Value="Bold"></Setter>
+                <Setter Property="TextColor" Value="#272727"></Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+            </Style>
+
+            <Style x:Key="EntryLogin" TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="#F8EEE7"></Setter>
+                <Setter Property="TextColor" Value="#F8EEE7"></Setter>
+                
+            </Style>
+        </ResourceDictionary>
+
+	</Application.Resources>
+</Application>
